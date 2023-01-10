@@ -3,9 +3,9 @@ requires = ["setuptools>=65.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "neofs-testlib"
+name = "frostfs-testlib"
 version = "1.1.1"
-description = "Building blocks and utilities to facilitate development of automated tests for NeoFS system"
+description = "Building blocks and utilities to facilitate development of automated tests for FrostFS system"
 readme = "README.md"
 authors = [{ name = "NSPCC", email = "info@nspcc.ru" }]
 license = { text = "GNU General Public License v3 (GPLv3)" }
@@ -14,7 +14,7 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
 ]
-keywords = ["neofs", "test"]
+keywords = ["frostfs", "test"]
 dependencies = [
     "allure-python-commons>=2.9.45",
     "docker>=4.4.0",
@@ -30,13 +30,13 @@ requires-python = ">=3.10"
 dev = ["black", "bumpver", "isort", "pre-commit"]
 
 [project.urls]
-Homepage = "https://github.com/nspcc-dev/neofs-testlib"
+Homepage = "https://github.com/TrueCloudLab/frostfs-testlib"
 
-[project.entry-points."neofs.testlib.reporter"]
-allure = "neofs_testlib.reporter.allure_handler:AllureHandler"
+[project.entry-points."frostfs.testlib.reporter"]
+allure = "frostfs_testlib.reporter.allure_handler:AllureHandler"
 
-[project.entry-points."neofs.testlib.hosting"]
-docker = "neofs_testlib.hosting.docker_host:DockerHost"
+[project.entry-points."frostfs.testlib.hosting"]
+docker = "frostfs_testlib.hosting.docker_host:DockerHost"
 
 [tool.isort]
 profile = "black"
@@ -57,4 +57,4 @@ push            = false
 
 [tool.bumpver.file_patterns]
 "pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
-"src/neofs_testlib/__init__.py" = ["{version}"]
+"src/frostfs_testlib/__init__.py" = ["{version}"]

@@ -4,7 +4,7 @@ from typing import Optional
 from unittest import TestCase
 from unittest.mock import MagicMock
 
-from neofs_testlib.reporter import Reporter
+from frostfs_testlib.reporter import Reporter
 
 
 class TestLocalShellInteractive(TestCase):

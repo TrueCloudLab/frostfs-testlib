@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from neofs_testlib.utils import converters
+from frostfs_testlib.utils import converters
 
 
 class TestConverters(TestCase):

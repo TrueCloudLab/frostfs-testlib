@@ -1,0 +1,1 @@
+from frostfs_testlib.cli.frostfs_authmate.authmate import FrostfsAuthmate

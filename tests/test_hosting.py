@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from neofs_testlib.hosting import CLIConfig, Hosting, ServiceConfig
+from frostfs_testlib.hosting import CLIConfig, Hosting, ServiceConfig
 
 
 class TestHosting(TestCase):
