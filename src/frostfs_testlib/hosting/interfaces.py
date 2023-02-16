@@ -11,9 +11,9 @@ class DiskInfo(dict):
 
 
 class Host(ABC):
-    """Interface of a host machine where neoFS services are running.
+    """Interface of a host machine where frostFS services are running.
 
-    Allows to manage the machine and neoFS services that are hosted on it.
+    Allows to manage the machine and frostFS services that are hosted on it.
     """
 
     def __init__(self, config: HostConfig) -> None:

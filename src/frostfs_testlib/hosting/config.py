@@ -33,7 +33,7 @@ class CLIConfig:
 
 @dataclass
 class ServiceConfig:
-    """Describes neoFS service on some host.
+    """Describes frostFS service on some host.
 
     Attributes:
         name: Name of the service that uniquely identifies it across all hosts.
@@ -48,7 +48,7 @@ class ServiceConfig:
 
 @dataclass
 class HostConfig:
-    """Describes machine that hosts neoFS services.
+    """Describes machine that hosts frostFS services.
 
     Attributes:
         plugin_name: Name of plugin that should be used to manage the host.
