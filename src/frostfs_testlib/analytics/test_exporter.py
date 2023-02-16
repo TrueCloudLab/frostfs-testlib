@@ -28,13 +28,13 @@ class TestExporter(ABC):
         """
 
     @abstractmethod
-    def get_or_create_test_suite(self, test_suite_name) -> object:
+    def get_or_create_test_suite(self, test_suite_name: str) -> object:
         """
         Get suite name with exact name or create if not exist
         """
 
     @abstractmethod
-    def get_or_create_suite_section(self, test_rail_suite, section_name) -> object:
+    def get_or_create_suite_section(self, test_rail_suite, section_name: str) -> object:
         """
         Get suite section with exact name or create new one if not exist
         """
