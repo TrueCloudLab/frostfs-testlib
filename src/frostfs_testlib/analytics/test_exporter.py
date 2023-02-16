@@ -5,7 +5,6 @@ from test_collector import TestCase
 class TestExporter(ABC):
     test_cases_cache = []
     test_suites_cache = []
-    test_case_id_field_name = ""
 
     @abstractmethod
     def fill_suite_cache(self) -> None:
