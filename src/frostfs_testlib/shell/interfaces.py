@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Optional
 
-from neofs_testlib.defaults import Options
+from frostfs_testlib.defaults import Options
 
 
 @dataclass
