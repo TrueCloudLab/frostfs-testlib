@@ -30,7 +30,7 @@ get_reporter().configure({ "handlers": [{"plugin_name": "allure"}] })
 ```
 
 ### Hosting Configuration
-Hosting component is a class that represents infrastructure (machines/containers/services) where neoFS is hosted. Interaction with specific infrastructure instance (host) is encapsulated in classes that implement interface `frostfs_testlib.hosting.Host`. To pass information about hosts to the `Hosting` class in runtime we use method `configure`:
+Hosting component is a class that represents infrastructure (machines/containers/services) where frostFS is hosted. Interaction with specific infrastructure instance (host) is encapsulated in classes that implement interface `frostfs_testlib.hosting.Host`. To pass information about hosts to the `Hosting` class in runtime we use method `configure`:
 
 ```python
 from frostfs_testlib.hosting import Hosting
@@ -84,8 +84,8 @@ Detailed information about registering entrypoints can be found at [setuptools d
 ## Library structure
 The library provides the following primary components:
  * `blockchain` - Contains helpers that allow to interact with neo blockchain, smart contracts, gas transfers, etc.
- * `cli` - wrappers on top of neoFS command-line tools. These wrappers execute on a shell and provide type-safe interface for interacting with the tools.
- * `hosting` - management of infrastructure (docker, virtual machines, services where neoFS is hosted). The library provides host implementation for docker environment (when neoFS services are running as docker containers). Support for other hosts is provided via plugins.
+ * `cli` - wrappers on top of frostFS command-line tools. These wrappers execute on a shell and provide type-safe interface for interacting with the tools.
+ * `hosting` - management of infrastructure (docker, virtual machines, services where frostFS is hosted). The library provides host implementation for docker environment (when neoFS services are running as docker containers). Support for other hosts is provided via plugins.
  * `reporter` - abstraction on top of test reporting tool like Allure. Components of the library will report their steps and attach artifacts to the configured reporter instance.
  * `shell` - shells that can be used to execute commands. Currently library provides local shell (on machine that runs the code) or SSH shell that connects to a remote machine via SSH.
  * `utils` - Support functions.

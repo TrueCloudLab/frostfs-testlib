@@ -7,7 +7,7 @@ from frostfs_testlib.plugins import load_plugin
 
 
 class Hosting:
-    """Hosting manages infrastructure  where neoFS runs (machines and neoFS services)."""
+    """Hosting manages infrastructure  where frostFS runs (machines and frostFS services)."""
 
     _hosts: list[Host]
     _host_by_address: dict[str, Host]

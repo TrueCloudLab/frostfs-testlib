@@ -20,11 +20,11 @@ logger = logging.getLogger("frostfs.testlib.hosting")
 
 @dataclass
 class HostAttributes(ParsedAttributes):
-    """Represents attributes of host where Docker with neoFS runs.
+    """Represents attributes of host where Docker with frostFS runs.
 
     Attributes:
         sudo_shell: Specifies whether shell commands should be auto-prefixed with sudo.
-        docker_endpoint: Protocol, address and port of docker where neoFS runs. Recommended format
+        docker_endpoint: Protocol, address and port of docker where frostFS runs. Recommended format
             is tcp socket (https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-socket-option),
             for example: tcp://{address}:2375 (where 2375 is default docker port).
         ssh_login: Login for SSH connection to the machine where docker runs.
