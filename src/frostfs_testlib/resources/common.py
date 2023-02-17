@@ -21,6 +21,7 @@ OBJECT_NOT_FOUND = "code = 2049.*message = object not found"
 OBJECT_ALREADY_REMOVED = "code = 2052.*message = object already removed"
 SESSION_NOT_FOUND = "code = 4096.*message = session token not found"
 OUT_OF_RANGE = "code = 2053.*message = out of range"
+EXPIRED_SESSION_TOKEN = "code = 4097.*message = expired session token"
 # TODO: Due to https://github.com/nspcc-dev/neofs-node/issues/2092 we have to check only codes until fixed
 # OBJECT_IS_LOCKED = "code = 2050.*message = object is locked"
 # LOCK_NON_REGULAR_OBJECT = "code = 2051.*message = ..." will be available once 2092 is fixed
