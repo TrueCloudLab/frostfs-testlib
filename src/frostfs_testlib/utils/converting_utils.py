@@ -3,7 +3,6 @@ import binascii
 import json
 
 import base58
-from neo3.wallet import wallet as neo3_wallet
 
 
 def str_to_ascii_hex(input: str) -> str:
@@ -61,9 +60,3 @@ def get_wif_from_private_key(priv_key: bytes) -> str:
     compressed_flag = b"\x01"
     wif = base58.b58encode_check(wif_version + priv_key + compressed_flag)
     return wif.decode("utf-8")
-
-
-def load_wallet(path: str, passwd: str = "") -> neo3_wallet.Wallet:
-    with open(path, "r") as wallet_file:
-        wlt_data = wallet_file.read()
-    return neo3_wallet.Wallet.from_json(json.loads(wlt_data), password=passwd)

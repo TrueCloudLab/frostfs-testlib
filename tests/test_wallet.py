@@ -5,7 +5,7 @@ from uuid import uuid4
 
 from neo3.wallet.wallet import Wallet
 
-from frostfs_testlib.utils.wallet import init_wallet, get_last_address_from_wallet
+from frostfs_testlib.utils.wallet_utils import get_last_address_from_wallet, init_wallet
 
 
 class TestWallet(TestCase):
