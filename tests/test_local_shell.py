@@ -2,8 +2,7 @@ from unittest import TestCase
 
 from frostfs_testlib.shell.interfaces import CommandOptions, InteractiveInput
 from frostfs_testlib.shell.local_shell import LocalShell
-
-from tests.helpers import format_error_details, get_output_lines
+from helpers import format_error_details, get_output_lines
 
 
 class TestLocalShellInteractive(TestCase):

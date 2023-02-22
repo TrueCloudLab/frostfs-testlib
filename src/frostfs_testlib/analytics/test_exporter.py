@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
-from test_collector import TestCase
+from frostfs_testlib.analytics.test_collector import TestCase
+
 
 class TestExporter(ABC):
     test_cases_cache = []
@@ -45,7 +46,9 @@ class TestExporter(ABC):
         """
 
     @abstractmethod
-    def update_test_case(self, test_case: TestCase, test_case_in_tms, test_suite, test_suite_section) -> None:
+    def update_test_case(
+        self, test_case: TestCase, test_case_in_tms, test_suite, test_suite_section
+    ) -> None:
         """
         Update test case in TMS
         """
@@ -57,12 +60,11 @@ class TestExporter(ABC):
 
         for test_case in test_cases:
             test_suite = self.get_or_create_test_suite(test_case.suite_name)
-            test_section = self.get_or_create_suite_section(test_suite, test_case.suite_section_name)
+            test_section = self.get_or_create_suite_section(
+                test_suite, test_case.suite_section_name
+            )
             test_case_in_tms = self.search_test_case_id(test_case.id)
-            steps = [
-                {"content": value, "expected": " "}
-                for key, value in test_case.steps.items()
-            ]
+            steps = [{"content": value, "expected": " "} for key, value in test_case.steps.items()]
 
             if test_case:
                 self.update_test_case(test_case, test_case_in_tms)
