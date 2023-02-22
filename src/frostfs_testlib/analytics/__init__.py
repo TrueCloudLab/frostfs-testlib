@@ -1,4 +1,5 @@
-from test_case import id, suite_name, suite_section, title
-from test_collector import TestCase, TestCaseCollector
-from test_exporter import TestExporter
-from testrail_exporter import TestrailExporter
+from frostfs_testlib.analytics import test_case
+from frostfs_testlib.analytics.test_case import TestCasePriority
+from frostfs_testlib.analytics.test_collector import TestCase, TestCaseCollector
+from frostfs_testlib.analytics.test_exporter import TestExporter
+from frostfs_testlib.analytics.testrail_exporter import TestrailExporter

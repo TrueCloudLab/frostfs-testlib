@@ -1,22 +1,22 @@
 from testrail_api import TestRailAPI
 
-from test_collector import TestCase
-from test_exporter import TestExporter
+from frostfs_testlib.analytics.test_collector import TestCase
+from frostfs_testlib.analytics.test_exporter import TestExporter
 
 
 class TestrailExporter(TestExporter):
     def __init__(
-            self,
-            tr_url: str,
-            tr_username: str,
-            tr_password: str,
-            tr_project_id: int,
-            tr_template_id_without_steps: int,
-            tr_template_id_with_steps: int,
-            tr_priority_map: dict,
-            tr_id_field: str,
-            tr_description_fields: str,
-            tr_steps_field: str,
+        self,
+        tr_url: str,
+        tr_username: str,
+        tr_password: str,
+        tr_project_id: int,
+        tr_template_id_without_steps: int,
+        tr_template_id_with_steps: int,
+        tr_priority_map: dict,
+        tr_id_field: str,
+        tr_description_fields: str,
+        tr_steps_field: str,
     ):
         """
         Redefine init for base exporter for get test rail credentials and project on create exporter
@@ -101,7 +101,9 @@ class TestrailExporter(TestExporter):
         elif len(test_rail_suites) == 1:
             return test_rail_suites.pop()
         else:
-            raise RuntimeError(f"Too many results found in test rail for suite name {test_suite_name}")
+            raise RuntimeError(
+                f"Too many results found in test rail for suite name {test_suite_name}"
+            )
 
     def get_or_create_suite_section(self, test_rail_suite, section_name) -> object:
         """
@@ -137,26 +139,21 @@ class TestrailExporter(TestExporter):
             "title": test_case.title,
             "section_id": test_suite_section["id"],
             self.test_case_id_field_name: test_case.id,
-
         }
 
         if test_case.priority:
             request_body["priority_id"] = self.tr_priority_map.get(test_case.priority)
 
         if test_case.steps:
-            steps = [
-                {"content": value, "expected": " "}
-                for key, value in test_case.steps.items()
-            ]
+            steps = [{"content": value, "expected": " "} for key, value in test_case.steps.items()]
             request_body[self.tr_steps_field] = steps
-            request_body["template_id"]=self.tr_template_id_with_steps
+            request_body["template_id"] = self.tr_template_id_with_steps
         else:
             request_body["template_id"] = self.tr_template_id_without_steps
         if test_case.description:
             request_body[self.tr_description_fields] = self.tr_description_fields
 
         return request_body
-
 
     def create_test_case(self, test_case: TestCase, test_suite, test_suite_section) -> None:
         """
@@ -166,13 +163,12 @@ class TestrailExporter(TestExporter):
 
         self.api.cases.add_case(**request_body)
 
-
-    def update_test_case(self, test_case: TestCase, test_case_in_tms, test_suite, test_suite_section) -> None:
+    def update_test_case(
+        self, test_case: TestCase, test_case_in_tms, test_suite, test_suite_section
+    ) -> None:
         """
         Update test case in Testrail
         """
         request_body = self.prepare_request_body(test_case, test_suite, test_suite_section)
 
         self.api.cases.update_case(case_id=test_case_in_tms["id"], **request_body)
-
-

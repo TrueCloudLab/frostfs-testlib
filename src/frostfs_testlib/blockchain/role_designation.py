@@ -2,11 +2,10 @@ import json
 from time import sleep
 from typing import Optional
 
-from cli import NeoGo
-from shell import Shell
-from utils.converters import process_b64_bytearray
-
 from frostfs_testlib.blockchain import Multisig
+from frostfs_testlib.cli import NeoGo
+from frostfs_testlib.shell import Shell
+from frostfs_testlib.utils.converting_utils import process_b64_bytearray
 
 
 class RoleDesignation:
